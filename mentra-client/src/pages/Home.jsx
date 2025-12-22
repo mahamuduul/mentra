@@ -1,0 +1,192 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaBook, FaHeartbeat, FaChartLine, FaShieldAlt, FaBullseye, FaLightbulb } from 'react-icons/fa';
+import { MdEmojiEmotions } from 'react-icons/md';
+import NewHero from '../components/NewHero';
+import QuickCalm from '../components/QuickCalm';
+import CrisisSupport from '../components/CrisisSupport';
+import SurveyModal from '../components/SurveyModal';
+import ExpertsSection from '../components/ExpertsSection';
+import { useAuth } from '../context/AuthContext';
+
+const Home = () => {
+  const navigate = useNavigate();
+  const { needsSurvey, isAuthenticated } = useAuth();
+  const [showSurveyModal, setShowSurveyModal] = useState(false);
+
+  // Show survey modal when user needs survey
+  useEffect(() => {
+    if (isAuthenticated && needsSurvey) {
+      setShowSurveyModal(true);
+    }
+  }, [isAuthenticated, needsSurvey]);
+
+  const features = [
+    {
+      icon: MdEmojiEmotions,
+      title: 'Mood Tracker',
+      description: 'Track your emotional journey, identify patterns, and build healthy habits',
+      route: '/mood-tracker',
+    },
+    {
+      icon: FaBook,
+      title: 'Personal Journal',
+      description: 'Express your thoughts and feelings in a private, secure journal',
+      route: '/journal',
+    },
+    {
+      icon: FaHeartbeat,
+      title: 'Breathing Exercises',
+      description: 'Practice guided breathing techniques to calm your mind and reduce anxiety',
+      route: '#quick-calm',
+    },
+    {
+      icon: FaChartLine,
+      title: 'Progress Dashboard',
+      description: 'Visualize your mental wellness journey with detailed analytics and insights',
+      route: '/dashboard',
+    },
+  ];
+
+  const whyMentra = [
+    {
+      icon: FaShieldAlt,
+      emoji: '🔒',
+      title: 'Private & Secure',
+      description: 'Your data is encrypted and protected. We never share your personal information.',
+    },
+    {
+      icon: FaBullseye,
+      emoji: '🎯',
+      title: 'Evidence-Based',
+      description: 'Our tools are based on scientifically proven mental health practices and therapies.',
+    },
+    {
+      icon: FaLightbulb,
+      emoji: '💡',
+      title: 'Easy to Use',
+      description: 'Simple, intuitive interface designed for everyone, regardless of technical skills.',
+    },
+  ];
+
+  return (
+    <div className="overflow-hidden">
+      {/* Hero Section */}
+      <NewHero />
+
+      {/* All sections share the same purple background */}
+      <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 relative">
+        {/* Decorative Elements - Spans entire background */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-96 right-20 w-96 h-96 bg-purple-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-96 left-20 w-80 h-80 bg-purple-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-purple-400 rounded-full blur-3xl"></div>
+        </div>
+
+        {/* Features Grid */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <div className="inline-block mb-4">
+                <div className="flex items-center justify-center space-x-2 bg-purple-700/50 text-purple-100 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+                  <span className="text-2xl">🧰</span>
+                  <span>Mental Wellness Tools</span>
+                </div>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                Your Mental Wellness
+                <span className="block text-purple-300">Toolkit</span>
+              </h2>
+              <p className="text-xl text-purple-200 max-w-2xl mx-auto">
+                Comprehensive tools to support your mental health journey every step of the way
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={feature.title}
+                    className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-purple-400/30 hover:border-purple-300 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-purple-500/50 animate-fade-in transform hover:scale-105"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                    onClick={() => navigate(feature.route)}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                      <Icon className="text-2xl text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-purple-200 mb-4">
+                      {feature.description}
+                    </p>
+                    <span className="text-purple-300 font-medium group-hover:translate-x-2 inline-block transition-transform">
+                      Explore →
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Mental Health Experts Section */}
+        <ExpertsSection />
+
+        {/* Quick Calm Breathing Exercise */}
+        <div id="quick-calm">
+          <QuickCalm />
+        </div>
+
+        {/* Why Choose Mentra */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <div className="text-6xl mb-4">🧠</div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                Why Choose Mentra?
+              </h2>
+              <p className="text-xl text-purple-200 max-w-2xl mx-auto">
+                Trusted by thousands for mental wellness support
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {whyMentra.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-purple-400/30 hover:border-purple-300 hover:bg-white/15 transition-all duration-300 animate-fade-in transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  <div className="text-5xl mb-4">{item.emoji}</div>
+                  <h3 className="text-xl font-bold mb-3 text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-purple-200">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Crisis Support Banner */}
+        <CrisisSupport />
+      </div>
+
+      {/* Survey Modal */}
+      <SurveyModal
+        isOpen={showSurveyModal}
+        onComplete={() => {
+          setShowSurveyModal(false);
+          // Stay on home page after completing survey
+        }}
+      />
+    </div>
+  );
+};
+
+export default Home;

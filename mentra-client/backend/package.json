@@ -1,0 +1,24 @@
+{
+  "name": "mentra-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Mentra mental health platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.9.5",
+    "firebase-admin": "^13.0.1",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.4.1",
+    "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
