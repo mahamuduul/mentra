@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaUserMd, FaRobot, FaChalkboardTeacher, FaMicroscope, FaGlobe, FaLock, FaHeart, FaRocket } from 'react-icons/fa';
 
 const About = () => {
@@ -17,7 +18,12 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 bg-white relative">      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>About Us - Mentra</title>
+        <meta name="description" content="Learn about Mentra's mission to provide accessible mental health support through AI-powered tools, professional counselors, and a supportive community." />
+      </Helmet>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

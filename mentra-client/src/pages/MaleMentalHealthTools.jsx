@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaBriefcase, FaDollarSign, FaFire, FaChevronDown, FaChevronUp, FaSave } from 'react-icons/fa';
 
 // Career Pressure Tools
@@ -71,6 +72,10 @@ const MaleMentalHealthTools = () => {
 
   return (
     <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Men's Mental Health Tools - Mentra</title>
+        <meta name="description" content="Evidence-based mental health tools designed specifically for men. Address career pressure, financial stress, and anger management challenges." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

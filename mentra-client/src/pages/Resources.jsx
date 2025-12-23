@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const Resources = () => {
   const resourceCategories = [
@@ -42,6 +43,10 @@ const Resources = () => {
 
   return (
     <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>Resources - Mentra</title>
+        <meta name="description" content="Access comprehensive mental health resources including meditation guides, sleep tips, stress management strategies, and self-care practices." />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

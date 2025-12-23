@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaShieldAlt, FaUserShield, FaExclamationTriangle, FaBrain } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import {
@@ -113,6 +114,10 @@ const FemaleTools = () => {
 
   return (
     <div className="min-h-screen bg-white py-12 px-4">
+      <Helmet>
+        <title>Women's Mental Health Tools - Mentra</title>
+        <meta name="description" content="Specialized support tools designed for women's unique mental health challenges including safety, harassment, and social pressure issues." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

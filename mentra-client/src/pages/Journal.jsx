@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaBook, FaPlus, FaTrash, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
 import { MdLightbulb } from 'react-icons/md';
 
@@ -80,6 +81,10 @@ const Journal = () => {
 
   return (
     <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>Journal - Mentra</title>
+        <meta name="description" content="Express your thoughts, feelings, and experiences in your personal mental health journal. Reflect and track your emotional journey." />
+      </Helmet>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

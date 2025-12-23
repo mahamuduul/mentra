@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import GenderProtectedSection from '../components/GenderProtectedSection';
 import { Link } from 'react-router-dom';
@@ -350,6 +351,10 @@ const MentalHealthSupport = () => {
 
   return (
     <div className="min-h-screen bg-white py-12 px-4">
+      <Helmet>
+        <title>Mental Health Support - Mentra</title>
+        <meta name="description" content="Access gender-specific mental health support with evidence-based therapeutic tools and research-backed interventions." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

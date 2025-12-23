@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import { 
@@ -129,7 +130,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">      {/* Header */}
+    <div className="min-h-screen bg-white relative">
+      <Helmet>
+        <title>Dashboard - Mentra</title>
+        <meta name="description" content="Your personal mental health dashboard. Track your mood, view achievements, and access personalized wellness recommendations." />
+      </Helmet>
+      {/* Header */}
       <header className="bg-gradient-to-r from-purple-600 to-purple-800 border-b border-purple-500 sticky top-0 z-10 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">

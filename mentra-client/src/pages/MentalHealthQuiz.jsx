@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaHeart, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import { MdPsychology } from 'react-icons/md';
 import Card from '../components/ui/Card';
@@ -214,6 +215,10 @@ const MentalHealthQuiz = () => {
 
   return (
     <div className="min-h-screen py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-purple-900/20">
+      <Helmet>
+        <title>Mental Health Quiz - Mentra</title>
+        <meta name="description" content="Take a confidential mental health assessment to better understand your wellbeing and receive personalized recommendations." />
+      </Helmet>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

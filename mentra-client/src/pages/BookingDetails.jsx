@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
   FaCalendarAlt, 
   FaClock, 
@@ -204,6 +205,10 @@ const BookingDetails = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Booking Details - Mentra</title>
+        <meta name="description" content="View and manage your counseling session booking details. Access session information and meeting links." />
+      </Helmet>
       <div className="max-w-5xl mx-auto">
         {/* Back Button */}
         <motion.button

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
   FaSmile, FaMeh, FaFrown, FaSadTear, FaGrin,
   FaCalendarAlt, FaChartLine, FaFire 
@@ -107,6 +108,10 @@ const MoodTracker = () => {
 
   return (
     <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>Mood Tracker - Mentra</title>
+        <meta name="description" content="Track your daily moods and emotions. Monitor patterns, maintain streaks, and gain insights into your mental wellness journey." />
+      </Helmet>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

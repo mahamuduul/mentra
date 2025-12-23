@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaUser, FaEnvelope, FaLock, FaGoogle, FaBrain, FaCheck } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import InputField from '../components/ui/InputField';
@@ -130,6 +131,10 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Register - Mentra</title>
+        <meta name="description" content="Create your Mentra account to start your mental wellness journey with personalized support and resources." />
+      </Helmet>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

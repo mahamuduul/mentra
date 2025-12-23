@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 import { 
@@ -358,6 +359,10 @@ const CounselorAssignment = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
+      <Helmet>
+        <title>Counselors - Mentra</title>
+        <meta name="description" content="Find and book sessions with gender-matched professional counselors. Access specialized mental health support tailored to your needs." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <motion.div

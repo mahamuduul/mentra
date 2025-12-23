@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import BackButton from '../components/BackButton';
 import io from 'socket.io-client';
@@ -167,6 +168,10 @@ const LiveChat = () => {
 
   return (
     <div className="min-h-screen bg-white pt-20 relative">
+      <Helmet>
+        <title>Live Chat - Mentra</title>
+        <meta name="description" content="Connect with others in real-time through our anonymous live chat. Share, support, and find community in a safe space." />
+      </Helmet>
       {/* Header */}
       <div className="bg-white border-b border-2 border-purple-200 text-gray-900 py-8 relative z-10 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

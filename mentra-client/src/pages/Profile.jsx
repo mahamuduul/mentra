@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import { FaUser, FaEnvelope, FaCalendarAlt, FaEdit, FaSave, FaTimes, FaMars, FaVenus } from 'react-icons/fa';
 import { showSuccessToast, showErrorToast } from '../utils/toast';
@@ -74,6 +75,10 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-white py-12 px-4 relative">
+      <Helmet>
+        <title>Profile - Mentra</title>
+        <meta name="description" content="Manage your Mentra profile settings and personal information. Update your account details and preferences." />
+      </Helmet>
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-8">

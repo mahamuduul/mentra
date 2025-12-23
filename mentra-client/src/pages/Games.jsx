@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaBrain, FaGamepad, FaPuzzlePiece } from 'react-icons/fa';
 import { GiMeditation } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
@@ -38,6 +39,10 @@ const Games = () => {
 
   return (
     <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>Games - Mentra</title>
+        <meta name="description" content="Improve your mental wellness through interactive games. Enhance memory, practice mindfulness, and reduce stress through play." />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

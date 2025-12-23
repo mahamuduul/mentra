@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
 import BackButton from '../components/BackButton';
 import { 
@@ -76,6 +77,10 @@ const Community = () => {
 
   return (
     <div className="min-h-screen bg-white pt-20 relative">
+      <Helmet>
+        <title>Community - Mentra</title>
+        <meta name="description" content="Join a supportive mental health community. Share experiences, find support, and connect with others on their wellness journey." />
+      </Helmet>
       {/* Hero Header */}
       <div className="bg-gradient-to-r from-purple-600 to-purple-800 border-b border-2 border-purple-200 text-white py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

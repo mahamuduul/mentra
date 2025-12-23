@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { FaCalendarAlt, FaClock, FaUser, FaCheckCircle, FaClock as FaPending, FaTimesCircle, FaSpinner, FaEye } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import { showSuccessToast, showErrorToast } from '../utils/toast';
@@ -140,6 +141,10 @@ const MyBookings = () => {
 
   return (
     <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>My Bookings - Mentra</title>
+        <meta name="description" content="View and manage your counseling session bookings. Track upcoming appointments and session history." />
+      </Helmet>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

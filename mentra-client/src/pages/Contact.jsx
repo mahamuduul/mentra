@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +30,10 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen py-12 bg-white relative">
+      <Helmet>
+        <title>Contact Us - Mentra</title>
+        <meta name="description" content="Get in touch with Mentra's support team. We're here to help with any questions or concerns about mental health support." />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

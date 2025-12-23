@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { FaBook, FaHeartbeat, FaChartLine, FaShieldAlt, FaBullseye, FaLightbulb } from 'react-icons/fa';
 import { MdEmojiEmotions } from 'react-icons/md';
 import NewHero from '../components/NewHero';
