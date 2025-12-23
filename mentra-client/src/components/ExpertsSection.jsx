@@ -146,14 +146,10 @@ const ExpertsSection = () => {
       className="relative group"
     >
       {/* Unique Card Design with Hexagonal Top */}
-      <div className="bg-white/10 backdrop-blur-md rounded-3xl overflow-hidden border border-purple-400/30 hover:border-purple-300 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/50 flex flex-col h-full">
+      <div className="bg-white rounded-3xl overflow-hidden border-2 border-purple-200 hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-200 flex flex-col h-full">
         
         {/* Top Section - Image with Decorative Shape */}
-        <div className={`relative h-40 overflow-hidden ${
-          expert.gender === 'Male' 
-            ? 'bg-gradient-to-br from-blue-600/80 to-blue-800/80' 
-            : 'bg-gradient-to-br from-pink-600/80 to-pink-800/80'
-        }`}>
+        <div className="relative h-40 overflow-hidden bg-gradient-to-br from-purple-600 to-purple-800">
           {/* Decorative Pattern */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
@@ -182,13 +178,13 @@ const ExpertsSection = () => {
             {/* Availability Badge on Image */}
             <div className="absolute -top-2 -right-2">
               <span
-                className={`flex items-center justify-center w-10 h-10 rounded-full text-xs font-bold shadow-lg ${
+                className={`flex items-center justify-center px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
                   expert.availability === 'Available'
                     ? 'bg-green-500 text-white'
                     : 'bg-amber-500 text-white'
                 }`}
               >
-                {expert.availability === 'Available' ? '✓' : '⏱'}
+                {expert.availability}
               </span>
             </div>
           </div>
@@ -198,39 +194,39 @@ const ExpertsSection = () => {
         <div className="flex-1 flex flex-col px-6 pb-6">
           {/* Name & Title */}
           <div className="text-center mb-4">
-            <h3 className="text-xl font-bold text-white mb-2">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
               {expert.name}
             </h3>
-            <p className="text-purple-300 font-semibold text-sm mb-1">
+            <p className="text-purple-600 font-semibold text-sm mb-1">
               {expert.designation}
             </p>
-            <p className="text-purple-200 text-sm">
+            <p className="text-gray-600 text-sm">
               {expert.specialization}
             </p>
           </div>
 
           {/* Stats Row */}
           <div className="grid grid-cols-3 gap-3 mb-4">
-            <div className="bg-purple-700/30 rounded-xl p-3 text-center backdrop-blur-sm">
-              <div className="flex items-center justify-center text-yellow-400 mb-1">
+            <div className="bg-purple-50 rounded-xl p-3 text-center border border-purple-200">
+              <div className="flex items-center justify-center text-yellow-500 mb-1">
                 <FaStar className="text-sm" />
               </div>
-              <p className="text-white font-bold text-lg">{expert.rating}</p>
-              <p className="text-purple-300 text-xs">Rating</p>
+              <p className="text-gray-900 font-bold text-lg">{expert.rating}</p>
+              <p className="text-gray-600 text-xs">Rating</p>
             </div>
-            <div className="bg-purple-700/30 rounded-xl p-3 text-center backdrop-blur-sm">
-              <div className="flex items-center justify-center text-pink-400 mb-1">
+            <div className="bg-purple-50 rounded-xl p-3 text-center border border-purple-200">
+              <div className="flex items-center justify-center text-purple-600 mb-1">
                 <FaHeart className="text-sm" />
               </div>
-              <p className="text-white font-bold text-lg">{expert.patientsHelped}+</p>
-              <p className="text-purple-300 text-xs">Patients</p>
+              <p className="text-gray-900 font-bold text-lg">{expert.patientsHelped}+</p>
+              <p className="text-gray-600 text-xs">Patients</p>
             </div>
-            <div className="bg-purple-700/30 rounded-xl p-3 text-center backdrop-blur-sm">
-              <div className="flex items-center justify-center text-purple-300 mb-1">
+            <div className="bg-purple-50 rounded-xl p-3 text-center border border-purple-200">
+              <div className="flex items-center justify-center text-purple-600 mb-1">
                 <FaBrain className="text-sm" />
               </div>
-              <p className="text-white font-bold text-sm">{expert.experience.replace('+ years', '+')}</p>
-              <p className="text-purple-300 text-xs">Years</p>
+              <p className="text-gray-900 font-bold text-sm">{expert.experience.replace('+ years', '+')}</p>
+              <p className="text-gray-600 text-xs">Years</p>
             </div>
           </div>
 
@@ -239,7 +235,7 @@ const ExpertsSection = () => {
             {expert.expertise.slice(0, 3).map((skill, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-purple-600/40 text-purple-100 rounded-full text-xs font-medium backdrop-blur-sm border border-purple-400/30"
+                className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium border border-purple-300"
               >
                 {skill}
               </span>
@@ -252,11 +248,7 @@ const ExpertsSection = () => {
           {/* Book Session Button - Always at bottom */}
           <button 
             onClick={() => handleBookSession(expert)}
-            className={`w-full py-3.5 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 mt-auto ${
-              expert.gender === 'Male'
-                ? 'bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white hover:shadow-blue-500/50'
-                : 'bg-gradient-to-r from-pink-500 to-pink-700 hover:from-pink-600 hover:to-pink-800 text-white hover:shadow-pink-500/50'
-            }`}
+            className="w-full py-3.5 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 mt-auto bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white hover:shadow-purple-500/50"
           >
             <FaCalendarCheck className="text-lg" />
             <span>Book Live Session</span>
@@ -267,7 +259,7 @@ const ExpertsSection = () => {
   );
 
   return (
-    <section className="py-20 relative z-10">
+    <section className="py-12 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Show login prompt if not authenticated */}
         {!isAuthenticated ? (
@@ -279,26 +271,26 @@ const ExpertsSection = () => {
             className="text-center mb-16"
           >
             <div className="inline-block mb-4">
-              <div className="flex items-center justify-center space-x-2 bg-purple-700/50 text-purple-100 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+              <div className="flex items-center justify-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
                 <FaUserMd className="text-lg" />
                 <span>Licensed Professionals</span>
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Meet Our Mental Health
-              <span className="block text-purple-300">
+              <span className="block text-purple-600">
                 Experts
               </span>
             </h2>
-            <p className="text-xl text-purple-200 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Book a live session with our experienced doctors and therapists. 
               Get personalized care from certified professionals who truly understand.
             </p>
-            <div className="bg-yellow-500/20 border-2 border-yellow-400/50 rounded-2xl p-8 max-w-2xl mx-auto backdrop-blur-sm">
-              <p className="text-yellow-200 text-lg font-medium mb-4">
-                🔒 Please login to access gender-specific mental health support sections
+            <div className="bg-purple-50 border-2 border-purple-300 rounded-2xl p-8 max-w-2xl mx-auto">
+              <p className="text-gray-900 text-lg font-medium mb-4">
+                Please login to access personalized mental health support
               </p>
-              <p className="text-yellow-100">
+              <p className="text-gray-700">
                 Our experts provide specialized care tailored to your needs
               </p>
             </div>
@@ -354,18 +346,18 @@ const ExpertsSection = () => {
               >
                 <div className="text-center mb-12">
                   <div className="inline-block mb-4">
-                    <div className="flex items-center justify-center space-x-2 bg-blue-700/50 text-blue-100 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-                      <FaMars className="text-lg" />
+                    <div className="flex items-center justify-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <FaUserMd className="text-lg" />
                       <span>Men&apos;s Mental Health Support</span>
                     </div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                     Your Dedicated
-                    <span className="block text-blue-300">
+                    <span className="block text-purple-600">
                       Male Support Experts
                     </span>
                   </h2>
-                  <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                     Specialized mental health professionals who understand men&apos;s unique challenges and provide tailored support.
                   </p>
                 </div>
@@ -388,17 +380,16 @@ const ExpertsSection = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-center mt-12"
                 >
-                  <div className="bg-blue-500/10 backdrop-blur-md rounded-2xl p-8 border border-blue-400/30">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-                      Need Help Choosing the Right Expert?
+                  <div className="bg-purple-50 rounded-2xl p-8 border-2 border-purple-200">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                      Explore Men's Mental Health Tools
                     </h3>
-                    <p className="text-blue-200 mb-6 max-w-2xl mx-auto">
-                      Our support team specializes in men&apos;s mental health and can help you find the perfect professional 
-                      based on your specific needs.
+                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                      Access specialized resources, assessment tools, and guidance designed specifically for men's mental health needs.
                     </p>
                     <Link to="/male-mental-health-tools">
-                      <button className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Get Personalized Recommendation
+                      <button className="px-8 py-3 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        View Men's Tools
                       </button>
                     </Link>
                   </div>
@@ -420,18 +411,18 @@ const ExpertsSection = () => {
               >
                 <div className="text-center mb-12">
                   <div className="inline-block mb-4">
-                    <div className="flex items-center justify-center space-x-2 bg-pink-700/50 text-pink-100 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-                      <FaVenus className="text-lg" />
+                    <div className="flex items-center justify-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+                      <FaUserMd className="text-lg" />
                       <span>Women&apos;s Mental Health Support</span>
                     </div>
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                     Your Dedicated
-                    <span className="block text-pink-300">
+                    <span className="block text-purple-600">
                       Female Support Experts
                     </span>
                   </h2>
-                  <p className="text-xl text-pink-200 max-w-3xl mx-auto">
+                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                     Specialized mental health professionals who understand women&apos;s unique challenges and provide compassionate care.
                   </p>
                 </div>
@@ -454,17 +445,16 @@ const ExpertsSection = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-center mt-12"
                 >
-                  <div className="bg-pink-500/10 backdrop-blur-md rounded-2xl p-8 border border-pink-400/30">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-                      Need Help Choosing the Right Expert?
+                  <div className="bg-purple-50 rounded-2xl p-8 border-2 border-purple-200">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
+                      Explore Women's Mental Health Tools
                     </h3>
-                    <p className="text-pink-200 mb-6 max-w-2xl mx-auto">
-                      Our support team specializes in women&apos;s mental health and can help you find the perfect professional 
-                      based on your specific needs and life stage.
+                    <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                      Access specialized resources, assessment tools, and guidance designed specifically for women's mental health needs.
                     </p>
                     <Link to="/female-tools">
-                      <button className="px-8 py-3 bg-pink-600 text-white font-semibold rounded-xl hover:bg-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Get Personalized Recommendation
+                      <button className="px-8 py-3 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        View Women's Tools
                       </button>
                     </Link>
                   </div>

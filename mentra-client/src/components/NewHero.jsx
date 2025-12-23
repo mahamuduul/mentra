@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaBrain, FaHeart, FaSmile, FaArrowRight, FaComments } from 'react-icons/fa';
-import SlidingPuzzle from './games/SlidingPuzzle';
 import { useAuth } from '../context/AuthContext';
+import heroImage from '../assets/hero.png';
 
 const AnimatedWaves = () => {
   return (
@@ -156,14 +156,35 @@ const NewHero = () => {
               </div>
             </div>
 
-            {/* Right Side - Interactive Game */}
+            {/* Right Side - Hero Image */}
             <div className="hidden lg:flex justify-end items-center animate-fade-in">
-              <div className="w-full max-w-md">
-                <SlidingPuzzle />
+              <div className="relative w-full max-w-sm">
+                {/* Decorative Background Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 via-pink-400/30 to-purple-500/30 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-2xl animate-pulse"></div>
+                
+                {/* Hero Image Container */}
+                <div className="relative rounded-t-full rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white/20 backdrop-blur-sm animate-float">
+                  {/* Black Filter Overlay */}
+                  <div className="absolute inset-0 bg-black/20 z-10"></div>
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-500/20 z-10"></div>
+                  
+                  {/* Hero Image */}
+                  <img 
+                    src={heroImage} 
+                    alt="Mental Health Support"
+                    className="w-full h-auto object-cover"
+                  />
+                  
+                  {/* Decorative Corner Elements */}
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
+                  <div className="absolute -top-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400 to-cyan-400 rounded-full blur-xl opacity-60 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                </div>
                 
                 <div className="mt-6 text-center">
                   <p className="text-purple-200 text-sm">
-                    💜 Take a mindful break with this relaxing puzzle
+                    Your journey to wellness starts here
                   </p>
                 </div>
               </div>

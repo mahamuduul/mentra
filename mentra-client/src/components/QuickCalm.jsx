@@ -23,7 +23,7 @@ const QuickCalm = () => {
   }, []);
 
   return (
-    <section className="py-20 relative z-10">
+    <section className="py-12 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,22 +32,22 @@ const QuickCalm = () => {
           className="text-center mb-12"
         >
           <div className="inline-block mb-4">
-            <div className="flex items-center justify-center space-x-2 bg-purple-700/50 text-purple-100 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-              <span className="text-2xl">🧘</span>
+            <div className="flex items-center justify-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+              <GiMeditation className="text-lg" />
               <span>Relaxation Exercise</span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            <span className="text-purple-300">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <span className="text-purple-600">
               Quick Calm
             </span>
           </h2>
-          <p className="text-xl text-purple-200">
+          <p className="text-xl text-gray-600">
             Take a moment to breathe and center yourself
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl border border-purple-400/30 hover:border-purple-300 transition-all duration-300 shadow-2xl shadow-purple-500/50">
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 shadow-xl">
           <div className="flex flex-col items-center justify-center space-y-8 py-12 px-8">
             {/* Breathing Circle */}
             <div className="relative w-64 h-64 flex items-center justify-center">
@@ -100,17 +100,17 @@ const QuickCalm = () => {
                 exit={{ opacity: 0, y: -10 }}
                 className="text-center space-y-4"
               >
-                <h3 className="text-3xl font-bold text-white">
+                <h3 className="text-3xl font-bold text-gray-900">
                   {isBreathingIn ? t('breathe_in') : t('breathe_out')}
                 </h3>
-                <div className="text-6xl font-bold text-purple-300">
+                <div className="text-6xl font-bold text-purple-600">
                   {count}
                 </div>
               </motion.div>
             </AnimatePresence>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-xs bg-purple-900/50 rounded-full h-2 overflow-hidden border border-purple-400/30">
+            <div className="w-full max-w-xs bg-purple-100 rounded-full h-2 overflow-hidden border border-purple-300">
               <motion.div
                 animate={{
                   width: isBreathingIn ? ['0%', '100%'] : ['100%', '0%'],
@@ -119,11 +119,11 @@ const QuickCalm = () => {
                   duration: 4,
                   ease: "linear",
                 }}
-                className="h-full bg-gradient-to-r from-purple-400 to-purple-600"
+                className="h-full bg-gradient-to-r from-purple-500 to-purple-700"
               />
             </div>
 
-            <p className="text-center text-purple-200 max-w-md">
+            <p className="text-center text-gray-600 max-w-md">
               Follow the breathing pattern to reduce stress and anxiety. Inhale deeply for 4 seconds, then exhale slowly for 4 seconds.
             </p>
           </div>

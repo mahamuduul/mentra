@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaChartLine, FaClock, FaHeart } from 'react-icons/fa';
-import { GiMeditation } from 'react-icons/gi';
-import { MdFavorite, MdStars, MdSpa, MdLightbulb } from 'react-icons/md';
 import { useLanguage } from '../context/LanguageContext';
 import Button from './ui/Button';
+import heroImage from '../assets/hero.png';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -94,68 +93,77 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Illustration */}
+          {/* Right Hero Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            {/* Floating Elements */}
             <div className="relative w-full h-96 lg:h-[500px]">
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20 blur-2xl"
-              />
-              
+              {/* Decorative Background Shape */}
               <motion.div
                 animate={{ 
                   rotate: [0, 360],
-                  scale: [1, 1.1, 1]
                 }}
                 transition={{ 
-                  duration: 8, 
+                  duration: 30, 
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              >
-                <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <GiMeditation className="text-6xl text-white" />
-                </div>
-              </motion.div>
-
-              {/* Orbiting Elements */}
+                className="absolute inset-0 bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 dark:from-blue-900/30 dark:via-purple-900/30 dark:to-pink-900/30 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] blur-2xl opacity-50"
+              />
+              
+              {/* Hero Image Container */}
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80"
+                animate={{ 
+                  y: [0, -20, 0],
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="relative w-full h-full flex items-center justify-center"
               >
-                <motion.div 
-                  whileHover={{ scale: 1.2 }}
-                  className="absolute top-0 left-1/2 -translate-x-1/2 bg-green-100 dark:bg-green-900/30 p-4 rounded-full"
-                >
-                  <MdFavorite className="text-3xl text-green-500" />
-                </motion.div>
-                <motion.div 
-                  whileHover={{ scale: 1.2 }}
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-full"
-                >
-                  <MdStars className="text-3xl text-yellow-500" />
-                </motion.div>
-                <motion.div 
-                  whileHover={{ scale: 1.2 }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full"
-                >
-                  <MdSpa className="text-3xl text-blue-500" />
-                </motion.div>
-                <motion.div 
-                  whileHover={{ scale: 1.2 }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full"
-                >
-                  <MdLightbulb className="text-3xl text-purple-500" />
-                </motion.div>
+                <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-transparent to-purple-500/20 z-10"></div>
+                  
+                  {/* Hero Image */}
+                  <img 
+                    src={heroImage} 
+                    alt="Mental Health Support"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  
+                  {/* Decorative Elements */}
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 0.8, 0.5]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full blur-xl opacity-60"
+                  />
+                  <motion.div
+                    animate={{ 
+                      scale: [1, 1.3, 1],
+                      opacity: [0.4, 0.7, 0.4]
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1
+                    }}
+                    className="absolute -top-4 -left-4 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full blur-xl opacity-60"
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
