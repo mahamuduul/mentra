@@ -156,45 +156,38 @@ const LiveChat = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 pt-20 flex items-center justify-center">
+      <div className="min-h-screen bg-white pt-20 flex items-center justify-center">
         <div className="text-center">
-          <FaUserSecret className="text-6xl text-purple-300 mx-auto mb-4" />
-          <p className="text-xl text-purple-200">Please log in to join the live chat</p>
+          <FaUserSecret className="text-6xl text-purple-600 mx-auto mb-4" />
+          <p className="text-xl text-gray-600">Please log in to join the live chat</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 pt-20 relative">
-      {/* Decorative Background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full blur-3xl"></div>
-        <div className="absolute top-96 right-20 w-96 h-96 bg-purple-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-300 rounded-full blur-3xl"></div>
-      </div>
-
+    <div className="min-h-screen bg-white pt-20 relative">
       {/* Header */}
-      <div className="bg-white/10 backdrop-blur-md border-b border-purple-400/30 text-white py-8 relative z-10">
+      <div className="bg-white border-b border-2 border-purple-200 text-gray-900 py-8 relative z-10 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-4">
-            <BackButton className="text-white hover:text-purple-200 hover:bg-white/10" />
+            <BackButton className="text-gray-900 hover:text-purple-600 hover:bg-gray-100" />
           </div>
           
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl border border-purple-400/30">
-                <FaComments className="text-3xl" />
+              <div className="p-3 bg-white rounded-xl border-2 border-purple-200 shadow-xl">
+                <FaComments className="text-3xl text-purple-600" />
               </div>
               <div>
                 <h1 className="text-3xl font-bold flex items-center gap-3">
                   Anonymous Live Chat
-                  <span className="flex items-center gap-2 text-sm bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-purple-400/30">
+                  <span className="flex items-center gap-2 text-sm bg-white px-3 py-1 rounded-full border-2 border-purple-200 shadow-xl">
                     <FaCircle className={`text-xs ${isConnected ? 'text-green-400 animate-pulse' : 'text-red-400'}`} />
                     {isConnected ? 'Connected' : 'Connecting...'}
                   </span>
                 </h1>
-                <p className="text-purple-200 mt-1">Real-time support from peers who understand</p>
+                <p className="text-gray-600 mt-1">Real-time support from peers who understand</p>
               </div>
             </div>
             
@@ -204,17 +197,17 @@ const LiveChat = () => {
                   <FaUsers />
                   {activeCount}
                 </div>
-                <p className="text-xs text-purple-200">Active Now</p>
+                <p className="text-xs text-gray-600">Active Now</p>
               </div>
             </div>
           </div>
 
           {/* Safety Notice */}
-          <div className="mt-4 flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 text-sm border border-purple-400/20">
-            <FaShieldAlt className="text-purple-300 mt-0.5 flex-shrink-0" />
+          <div className="mt-4 flex items-start gap-3 bg-white rounded-lg p-3 text-sm border-2 border-purple-200 shadow-xl">
+            <FaShieldAlt className="text-purple-600 mt-0.5 flex-shrink-0" />
             <div>
               <p className="font-medium">Safe Space Guidelines:</p>
-              <p className="text-purple-200 text-xs mt-1">
+              <p className="text-gray-600 text-xs mt-1">
                 Be kind, respectful, and supportive. All messages are anonymous. Report any inappropriate behavior.
               </p>
             </div>
@@ -223,20 +216,20 @@ const LiveChat = () => {
       </div>
 
       {/* Chat Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid lg:grid-cols-4 gap-6">
           
           {/* Sidebar - Active Users */}
           <div className="lg:col-span-1">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-purple-400/30 p-6 sticky top-24">
-              <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-white">
-                <MdGroups className="text-purple-300" />
+            <div className="bg-white rounded-xl shadow-xl border-2 border-purple-200 p-6 sticky top-24">
+              <h3 className="font-bold text-lg mb-4 flex items-center gap-2 text-gray-900">
+                <MdGroups className="text-purple-600" />
                 Active Users ({activeCount})
               </h3>
               
               {anonymousName && (
-                <div className="mb-4 p-3 bg-purple-700/50 rounded-lg border-2 border-purple-400/50 backdrop-blur-sm">
-                  <p className="text-xs text-purple-200 font-medium mb-1">You are chatting as:</p>
+                <div className="mb-4 p-3 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg border-2 border-purple-200 shadow-xl">
+                  <p className="text-xs text-white font-medium mb-1">You are chatting as:</p>
                   <p className="font-bold text-white flex items-center gap-2">
                     <FaUserSecret /> {anonymousName}
                   </p>
@@ -246,23 +239,23 @@ const LiveChat = () => {
               <div className="space-y-2 max-h-96 overflow-y-auto">
                 {activeUsers.length > 0 ? (
                   activeUsers.map((name, index) => (
-                    <div key={index} className="flex items-center gap-2 text-sm p-2 bg-purple-700/30 rounded-lg border border-purple-400/20">
+                    <div key={index} className="flex items-center gap-2 text-sm p-2 bg-white rounded-lg border-2 border-purple-200 shadow-xl hover:border-purple-500">
                       <FaCircle className="text-green-400 text-xs animate-pulse" />
-                      <span className={name === anonymousName ? 'font-bold text-white' : 'text-purple-200'}>
+                      <span className={name === anonymousName ? 'font-bold text-gray-900' : 'text-gray-600'}>
                         {name} {name === anonymousName && '(You)'}
                       </span>
                     </div>
                   ))
                 ) : (
-                  <p className="text-purple-300 text-sm">Waiting for users...</p>
+                  <p className="text-purple-600 text-sm">Waiting for users...</p>
                 )}
               </div>
 
-              <div className="mt-6 pt-6 border-t border-purple-400/30">
-                <div className="text-xs text-purple-200 space-y-2">
-                  <p>💬 All messages are anonymous</p>
-                  <p>🔒 Your identity is protected</p>
-                  <p>🤝 Be supportive and kind</p>
+              <div className="mt-6 pt-6 border-t border-2 border-purple-200">
+                <div className="text-xs text-gray-600 space-y-2">
+                  <p>All messages are anonymous</p>
+                  <p>Your identity is protected</p>
+                  <p>Be supportive and kind</p>
                 </div>
               </div>
             </div>
@@ -270,14 +263,14 @@ const LiveChat = () => {
 
           {/* Main Chat Area */}
           <div className="lg:col-span-3">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-purple-400/30 flex flex-col" style={{ height: 'calc(100vh - 250px)' }}>
+            <div className="bg-white rounded-xl shadow-xl border-2 border-purple-200 flex flex-col" style={{ height: 'calc(100vh - 250px)' }}>
               
               {/* Messages Area */}
               <div className="flex-1 overflow-y-auto p-6 space-y-4">
                 {messages.length === 0 ? (
                   <div className="text-center py-12">
-                    <FaComments className="text-6xl text-purple-300 mx-auto mb-4 opacity-50" />
-                    <p className="text-purple-200">No messages yet. Start the conversation!</p>
+                    <FaComments className="text-6xl text-purple-600 mx-auto mb-4 opacity-50" />
+                    <p className="text-gray-600">No messages yet. Start the conversation!</p>
                   </div>
                 ) : (
                   messages.map((msg, index) => {
@@ -287,7 +280,7 @@ const LiveChat = () => {
                     if (isSystemMessage) {
                       return (
                         <div key={index} className="text-center">
-                          <span className="text-xs text-purple-300 bg-purple-700/30 px-3 py-1 rounded-full backdrop-blur-sm">
+                          <span className="text-xs text-purple-600 bg-white px-3 py-1 rounded-full border-2 border-purple-200 shadow-xl">
                             {msg.content}
                           </span>
                         </div>
@@ -299,21 +292,21 @@ const LiveChat = () => {
                         <div className={`max-w-md ${isMyMessage ? 'items-end' : 'items-start'} flex flex-col`}>
                           <div className="flex items-center gap-2 mb-1">
                             {!isMyMessage && (
-                              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-xs font-bold shadow-lg">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white text-xs font-bold shadow-xl">
                                 {msg.sender?.anonymousName?.charAt(0)}
                               </div>
                             )}
-                            <span className="text-xs font-semibold text-purple-200">
+                            <span className="text-xs font-semibold text-gray-600">
                               {msg.sender?.anonymousName}
                             </span>
-                            <span className="text-xs text-purple-300">
+                            <span className="text-xs text-purple-600">
                               {formatTime(msg.createdAt)}
                             </span>
                           </div>
                           <div className={`rounded-2xl px-4 py-2 ${
                             isMyMessage 
-                              ? 'bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-br-none shadow-lg shadow-purple-500/50' 
-                              : 'bg-white/20 backdrop-blur-sm text-white rounded-bl-none border border-purple-400/30'
+                              ? 'bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-br-none shadow-xl' 
+                              : 'bg-white text-gray-900 rounded-bl-none border-2 border-purple-200 shadow-xl hover:border-purple-500'
                           }`}>
                             <p className="text-sm whitespace-pre-wrap break-words">{msg.content}</p>
                           </div>
@@ -325,11 +318,11 @@ const LiveChat = () => {
                 
                 {/* Typing Indicator */}
                 {typingUsers.length > 0 && (
-                  <div className="flex items-center gap-2 text-sm text-purple-300 italic">
+                  <div className="flex items-center gap-2 text-sm text-purple-600 italic">
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                      <span className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                      <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                      <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                      <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                     </div>
                     <span>{typingUsers[0]} is typing...</span>
                   </div>
@@ -339,7 +332,7 @@ const LiveChat = () => {
               </div>
 
               {/* Input Area */}
-              <div className="border-t border-purple-400/30 p-4 bg-white/5 backdrop-blur-sm rounded-b-xl">
+              <div className="border-t border-2 border-purple-200 p-4 bg-white rounded-b-xl shadow-xl">
                 <form onSubmit={handleSendMessage} className="flex gap-3">
                   <input
                     type="text"
@@ -348,17 +341,17 @@ const LiveChat = () => {
                     placeholder="Type your message..."
                     maxLength={500}
                     disabled={!isConnected}
-                    className="flex-1 px-4 py-3 border border-purple-400/30 bg-purple-700/30 text-white placeholder-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:bg-purple-900/30 disabled:cursor-not-allowed"
+                    className="flex-1 px-4 py-3 border-2 border-purple-200 bg-white text-gray-900 placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent hover:border-purple-500 disabled:bg-gray-100 disabled:cursor-not-allowed shadow-xl"
                   />
                   <button
                     type="submit"
                     disabled={!inputMessage.trim() || !isConnected}
-                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-semibold shadow-lg shadow-purple-500/50"
+                    className="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-semibold shadow-xl"
                   >
                     <FaPaperPlane /> Send
                   </button>
                 </form>
-                <p className="text-xs text-purple-300 mt-2">
+                <p className="text-xs text-purple-600 mt-2">
                   {inputMessage.length}/500 characters
                 </p>
               </div>

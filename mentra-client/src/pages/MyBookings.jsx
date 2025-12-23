@@ -129,17 +129,17 @@ const MyBookings = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <FaSpinner className="text-5xl text-purple-600 animate-spin mx-auto mb-4" />
-          <p className="text-lg text-gray-700">Loading your bookings...</p>
+          <p className="text-lg text-gray-900">Loading your bookings...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -147,7 +147,7 @@ const MyBookings = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             My Bookings
           </h1>
           <p className="text-lg text-gray-600">
@@ -160,18 +160,18 @@ const MyBookings = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-lg p-12 text-center"
+            className="bg-white rounded-2xl shadow-xl p-12 text-center"
           >
             <FaCalendarAlt className="text-6xl text-gray-300 mx-auto mb-4" />
-            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
               No Bookings Yet
             </h3>
-            <p className="text-gray-500 mb-6">
+            <p className="text-gray-600 mb-6">
               You haven't booked any sessions yet. Start your mental health journey today!
             </p>
             <a
               href="/"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-purple-500 to-purple-700 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-purple-800 transition-all transform hover:scale-105 shadow-lg"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-purple-800 transition-all transform hover:scale-105 shadow-xl"
             >
               Browse Experts
             </a>
@@ -184,7 +184,7 @@ const MyBookings = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-xl transition-shadow"
               >
                 <div className="p-6">
                   {/* Header Row */}
@@ -192,7 +192,7 @@ const MyBookings = () => {
                     <div className="flex items-center space-x-3 mb-2 sm:mb-0">
                       {getStatusIcon(booking.status)}
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">
+                        <h3 className="text-xl font-bold text-gray-900">
                           {booking.expertName}
                         </h3>
                         <p className="text-sm text-gray-600">
@@ -212,10 +212,10 @@ const MyBookings = () => {
 
                   {/* Details Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="flex items-center space-x-2 text-gray-700">
+                    <div className="flex items-center space-x-2 text-gray-900">
                       <FaCalendarAlt className="text-purple-600" />
                       <div>
-                        <p className="text-xs text-gray-500">Date</p>
+                        <p className="text-xs text-gray-600">Date</p>
                         <p className="font-semibold">
                           {new Date(booking.date).toLocaleDateString('en-US', {
                             weekday: 'short',
@@ -226,17 +226,17 @@ const MyBookings = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-700">
+                    <div className="flex items-center space-x-2 text-gray-900">
                       <FaClock className="text-purple-600" />
                       <div>
-                        <p className="text-xs text-gray-500">Time</p>
+                        <p className="text-xs text-gray-600">Time</p>
                         <p className="font-semibold">{booking.time}</p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-700">
+                    <div className="flex items-center space-x-2 text-gray-900">
                       <FaUser className="text-purple-600" />
                       <div>
-                        <p className="text-xs text-gray-500">Concern</p>
+                        <p className="text-xs text-gray-600">Concern</p>
                         <p className="font-semibold">{booking.concernType}</p>
                       </div>
                     </div>
@@ -245,22 +245,22 @@ const MyBookings = () => {
                   {/* Booking Number */}
                   <div className="bg-gray-50 rounded-lg p-3 mb-4">
                     <p className="text-xs text-gray-600 mb-1">Booking Number</p>
-                    <p className="font-mono font-semibold text-gray-800">
+                    <p className="font-mono font-semibold text-gray-900">
                       {booking.bookingNumber}
                     </p>
                   </div>
 
                   {/* Message if exists */}
                   {booking.message && (
-                    <div className="bg-purple-50 border-l-4 border-purple-500 p-3 mb-4 rounded-r-lg">
-                      <p className="text-xs text-purple-700 font-semibold mb-1">Additional Information:</p>
-                      <p className="text-sm text-purple-900">{booking.message}</p>
+                    <div className="bg-purple-50 border-l-4 border-purple-600 p-3 mb-4 rounded-r-lg">
+                      <p className="text-xs text-purple-600 font-semibold mb-1">Additional Information:</p>
+                      <p className="text-sm text-gray-900">{booking.message}</p>
                     </div>
                   )}
 
                   {/* Actions */}
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-600">
                       Booked on {new Date(booking.createdAt).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',

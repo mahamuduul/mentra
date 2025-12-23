@@ -35,9 +35,9 @@ const FemaleTools = () => {
       id: 'harassment',
       name: 'Harassment Issues',
       icon: FaShieldAlt,
-      gradient: 'from-pink-500 to-pink-600',
-      border: 'border-pink-200',
-      hover: 'hover:bg-pink-50 hover:border-pink-400',
+      gradient: 'from-purple-600 to-purple-800',
+      border: 'border-purple-200',
+      hover: 'hover:bg-white hover:border-purple-500',
       description: 'Support for dealing with harassment and abuse',
       tools: [
         { id: 'harassment-report', name: 'Anonymous Report Form', component: AnonymousReportForm },
@@ -50,9 +50,9 @@ const FemaleTools = () => {
       id: 'pressure',
       name: 'Social/Personal Pressure',
       icon: FaUserShield,
-      gradient: 'from-purple-500 to-purple-600',
+      gradient: 'from-purple-600 to-purple-800',
       border: 'border-purple-200',
-      hover: 'hover:bg-purple-50 hover:border-purple-400',
+      hover: 'hover:bg-white hover:border-purple-500',
       description: 'Help managing societal and family expectations',
       tools: [
         { id: 'cbt-thought-record', name: 'CBT Thought Record', component: CBTThoughtRecord },
@@ -65,9 +65,9 @@ const FemaleTools = () => {
       id: 'safety',
       name: 'Safety Issues',
       icon: FaExclamationTriangle,
-      gradient: 'from-red-500 to-red-600',
-      border: 'border-red-200',
-      hover: 'hover:bg-red-50 hover:border-red-400',
+      gradient: 'from-purple-600 to-purple-800',
+      border: 'border-purple-200',
+      hover: 'hover:bg-white hover:border-purple-500',
       description: 'Resources for personal safety concerns',
       tools: [
         { id: 'emergency-resources', name: 'Emergency Resource Page', component: EmergencyResources },
@@ -80,9 +80,9 @@ const FemaleTools = () => {
       id: 'mental-stress',
       name: 'Mental Stress',
       icon: FaBrain,
-      gradient: 'from-blue-500 to-blue-600',
-      border: 'border-blue-200',
-      hover: 'hover:bg-blue-50 hover:border-blue-400',
+      gradient: 'from-purple-600 to-purple-800',
+      border: 'border-purple-200',
+      hover: 'hover:bg-white hover:border-purple-500',
       description: 'Tools for anxiety and emotional stress',
       tools: [
         { id: 'breathing-meditation', name: 'Breathing & Meditation', component: BreathingMeditation },
@@ -97,13 +97,13 @@ const FemaleTools = () => {
 
   if (selectedTool) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <button
             onClick={() => setSelectedTool(null)}
-            className="mb-6 text-pink-600 hover:text-pink-700 font-semibold flex items-center gap-2"
+            className="mb-6 text-purple-600 hover:text-purple-700 font-semibold flex items-center gap-2"
           >
-            ← Back to Tools
+            Back to Tools
           </button>
           <ToolComponent />
         </div>
@@ -112,11 +112,11 @@ const FemaleTools = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
             Female Mental Health Tools
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -133,14 +133,14 @@ const FemaleTools = () => {
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className={`bg-gradient-to-r ${category.gradient} p-6 text-white`}>
                   <div className="flex items-center gap-4 mb-3">
                     <Icon className="text-4xl" />
                     <h2 className="text-2xl font-bold">{category.name}</h2>
                   </div>
-                  <p className="text-white/80">{category.description}</p>
+                  <p className="text-white/90">{category.description}</p>
                 </div>
 
                 <div className="p-6 space-y-3">

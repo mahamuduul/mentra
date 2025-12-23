@@ -70,7 +70,7 @@ const MaleMentalHealthTools = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -96,8 +96,8 @@ const MaleMentalHealthTools = () => {
                 }}
                 className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all ${
                   activeCategory === category.id
-                    ? `bg-${category.color}-600 text-white shadow-lg`
-                    : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-xl'
+                    : 'bg-white text-gray-900 border-2 border-purple-200 hover:border-purple-500'
                 }`}
               >
                 <Icon className="text-xl" />
@@ -116,17 +116,17 @@ const MaleMentalHealthTools = () => {
             return (
               <div
                 key={tool.id}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
+                className="bg-white rounded-xl shadow-xl overflow-hidden border-2 border-purple-200"
               >
                 {/* Tool Header */}
                 <button
                   onClick={() => toggleTool(tool.id)}
                   className={`w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors ${
-                    isExpanded ? 'border-b border-gray-200' : ''
+                    isExpanded ? 'border-b border-purple-200' : ''
                   }`}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`w-2 h-10 bg-${activeCategoryData.color}-600 rounded-full`}></div>
+                    <div className="w-2 h-10 bg-gradient-to-b from-purple-600 to-purple-800 rounded-full"></div>
                     <h3 className="text-xl font-semibold text-gray-900">{tool.title}</h3>
                   </div>
                   {isExpanded ? (
@@ -148,9 +148,9 @@ const MaleMentalHealthTools = () => {
         </div>
 
         {/* Info Notice */}
-        <div className="mt-12 max-w-5xl mx-auto bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <div className="mt-12 max-w-5xl mx-auto bg-white border-2 border-purple-200 rounded-xl p-6 shadow-xl">
           <h4 className="font-semibold text-gray-900 mb-2">Your Progress is Saved</h4>
-          <p className="text-gray-700">
+          <p className="text-gray-600">
             All data you enter in these tools is automatically saved and can be viewed in your dashboard.
             Your information is private, secure, and only accessible by you.
           </p>

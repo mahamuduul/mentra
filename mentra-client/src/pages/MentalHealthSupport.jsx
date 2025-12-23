@@ -263,25 +263,25 @@ const MentalHealthSupport = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 overflow-hidden hover:border-white/40 transition-all duration-300"
+      className="bg-white rounded-2xl border-2 border-purple-200 overflow-hidden hover:border-purple-500 transition-all duration-300 shadow-xl"
     >
       <button
         onClick={() => toggleProblem(problem.id)}
         className="w-full p-6 flex items-center justify-between text-left"
       >
         <div className="flex items-center space-x-4">
-          <div className={`w-14 h-14 rounded-xl bg-${problem.color}-500/20 flex items-center justify-center`}>
-            <problem.icon className={`text-2xl text-${problem.color}-400`} />
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+            <problem.icon className="text-2xl text-white" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-white mb-1">{problem.title}</h3>
-            <p className="text-sm text-gray-300">{problem.description}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{problem.title}</h3>
+            <p className="text-sm text-gray-600">{problem.description}</p>
           </div>
         </div>
         {expandedProblem === problem.id ? (
-          <FaChevronUp className="text-white text-xl" />
+          <FaChevronUp className="text-gray-900 text-xl" />
         ) : (
-          <FaChevronDown className="text-white text-xl" />
+          <FaChevronDown className="text-gray-900 text-xl" />
         )}
       </button>
 
@@ -290,35 +290,35 @@ const MentalHealthSupport = () => {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="border-t border-white/10"
+          className="border-t border-purple-200"
         >
           <div className="p-6 space-y-6">
             {/* Clinical Approach */}
-            <div className="bg-white/5 rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-purple-300 mb-2">Clinical Approach</h4>
-              <p className="text-white font-medium">{problem.clinicalApproach}</p>
-              <p className="text-green-400 text-sm mt-2 flex items-center">
-                <span className="mr-2">✓</span>
+            <div className="bg-white rounded-xl border-2 border-purple-200 p-4 shadow-xl">
+              <h4 className="text-sm font-semibold text-purple-600 mb-2">Clinical Approach</h4>
+              <p className="text-gray-900 font-medium">{problem.clinicalApproach}</p>
+              <p className="text-purple-600 text-sm mt-2 flex items-center">
+                <span className="mr-2"></span>
                 {problem.proven}
               </p>
             </div>
 
             {/* Web-Based Tools */}
             <div>
-              <h4 className="text-sm font-semibold text-purple-300 mb-4">Evidence-Based Web Solutions</h4>
+              <h4 className="text-sm font-semibold text-purple-600 mb-4">Evidence-Based Web Solutions</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {problem.webTools.map((tool, index) => (
                   <Link
                     key={index}
                     to={tool.link}
-                    className={`bg-${problem.color}-500/10 hover:bg-${problem.color}-500/20 border border-${problem.color}-400/30 rounded-lg p-4 transition-all duration-300 group`}
+                    className="bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-purple-800 border-2 border-purple-200 hover:border-purple-500 rounded-lg p-4 transition-all duration-300 group shadow-xl"
                   >
-                    <h5 className="text-white font-semibold mb-2 group-hover:text-purple-300 transition-colors">
+                    <h5 className="text-gray-900 font-semibold mb-2 group-hover:text-white transition-colors">
                       {tool.name}
                     </h5>
-                    <p className="text-sm text-gray-300">{tool.description}</p>
-                    <span className="text-xs text-purple-400 mt-2 inline-block">
-                      Access Tool →
+                    <p className="text-sm text-gray-600 group-hover:text-white">{tool.description}</p>
+                    <span className="text-xs text-purple-600 group-hover:text-white mt-2 inline-block">
+                      Access Tool
                     </span>
                   </Link>
                 ))}
@@ -329,14 +329,14 @@ const MentalHealthSupport = () => {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/counselors"
-                className={`flex items-center space-x-2 px-4 py-2 bg-${problem.color}-600 hover:bg-${problem.color}-700 text-white rounded-lg transition-all`}
+                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white rounded-lg transition-all shadow-xl"
               >
                 <FaPhone />
                 <span>Book Counselor</span>
               </Link>
               <Link
                 to="/resources"
-                className="flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all"
+                className="flex items-center space-x-2 px-4 py-2 bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-purple-800 text-gray-900 hover:text-white border-2 border-purple-200 hover:border-purple-500 rounded-lg transition-all shadow-xl"
               >
                 <FaBook />
                 <span>Learn More</span>
@@ -349,7 +349,7 @@ const MentalHealthSupport = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 py-20 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -357,10 +357,10 @@ const MentalHealthSupport = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Evidence-Based Mental Health Support
           </h1>
-          <p className="text-xl text-purple-200 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Gender-specific support using clinically proven therapeutic methods and research-backed interventions
           </p>
         </motion.div>
@@ -369,15 +369,15 @@ const MentalHealthSupport = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-yellow-500/20 border-2 border-yellow-400/50 rounded-2xl p-8 text-center max-w-2xl mx-auto"
+            className="bg-gradient-to-br from-purple-600 to-purple-800 border-2 border-purple-200 rounded-2xl p-8 text-center max-w-2xl mx-auto shadow-xl"
           >
             <h3 className="text-2xl font-bold text-white mb-4">Login Required</h3>
-            <p className="text-yellow-200 mb-6">
+            <p className="text-white mb-6">
               Please login to access personalized mental health support based on your needs.
             </p>
             <Link
               to="/login"
-              className="inline-block px-8 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-xl transition-all"
+              className="inline-block px-8 py-3 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-semibold rounded-xl transition-all"
             >
               Login Now
             </Link>
@@ -386,15 +386,15 @@ const MentalHealthSupport = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-yellow-500/20 border-2 border-yellow-400/50 rounded-2xl p-8 text-center max-w-2xl mx-auto"
+            className="bg-gradient-to-br from-purple-600 to-purple-800 border-2 border-purple-200 rounded-2xl p-8 text-center max-w-2xl mx-auto shadow-xl"
           >
             <h3 className="text-2xl font-bold text-white mb-4">Complete Your Profile</h3>
-            <p className="text-yellow-200 mb-6">
+            <p className="text-white mb-6">
               Please update your profile to access gender-specific mental health support.
             </p>
             <Link
               to="/profile"
-              className="inline-block px-8 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-xl transition-all"
+              className="inline-block px-8 py-3 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white font-semibold rounded-xl transition-all"
             >
               Update Profile
             </Link>
@@ -410,12 +410,12 @@ const MentalHealthSupport = () => {
                 className="mb-16"
               >
                 <div className="flex items-center justify-center mb-8">
-                  <div className="flex items-center space-x-3 bg-pink-700/30 px-6 py-3 rounded-full">
-                    <FaVenus className="text-2xl text-pink-300" />
+                  <div className="flex items-center space-x-3 bg-gradient-to-br from-purple-600 to-purple-800 px-6 py-3 rounded-full">
+                    <FaVenus className="text-2xl text-white" />
                     <h2 className="text-2xl font-bold text-white">Women's Mental Health Support</h2>
                   </div>
                 </div>
-                <p className="text-center text-pink-200 mb-12 max-w-3xl mx-auto">
+                <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
                   Specialized support addressing challenges unique to women's mental health, using evidence-based therapeutic approaches.
                 </p>
                 <div className="space-y-6">
@@ -435,12 +435,12 @@ const MentalHealthSupport = () => {
                 className="mb-16"
               >
                 <div className="flex items-center justify-center mb-8">
-                  <div className="flex items-center space-x-3 bg-blue-700/30 px-6 py-3 rounded-full">
-                    <FaMars className="text-2xl text-blue-300" />
+                  <div className="flex items-center space-x-3 bg-gradient-to-br from-purple-600 to-purple-800 px-6 py-3 rounded-full">
+                    <FaMars className="text-2xl text-white" />
                     <h2 className="text-2xl font-bold text-white">Men's Mental Health Support</h2>
                   </div>
                 </div>
-                <p className="text-center text-blue-200 mb-12 max-w-3xl mx-auto">
+                <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
                   Targeted support for men's mental health challenges, using clinically proven therapeutic methods and interventions.
                 </p>
                 <div className="space-y-6">
@@ -456,11 +456,11 @@ const MentalHealthSupport = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-8 text-center"
+              className="bg-white rounded-2xl border-2 border-purple-200 p-8 text-center shadow-xl"
             >
-              <FaShieldAlt className="text-4xl text-purple-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-3">Privacy & Confidentiality</h3>
-              <p className="text-gray-300 max-w-2xl mx-auto">
+              <FaShieldAlt className="text-4xl text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Privacy & Confidentiality</h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 All interventions follow ethical mental health practices. Your data is protected, and all sessions are confidential.
                 We use evidence-based approaches validated by psychological research and real-world digital mental health platforms.
               </p>

@@ -85,7 +85,7 @@ const ConflictResolutionScripts = () => {
         {
           situation: 'Someone makes inappropriate jokes',
           script: "Hey, I know you're joking, but that type of humor doesn't sit well with me. I'd appreciate it if we could keep things respectful.",
-          tips: ['Be direct but not aggressive', 'Set clear boundaries', 'Don't apologize for your boundaries']
+          tips: ['Be direct but not aggressive', 'Set clear boundaries', 'Don\'t apologize for your boundaries']
         },
         {
           situation: 'Declining unwanted invitation',
